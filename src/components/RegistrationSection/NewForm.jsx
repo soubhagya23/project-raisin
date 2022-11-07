@@ -30,7 +30,6 @@ const RegistrationContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   padding-top: 5rem;
-
   @media screen and (max-width: 990px) {
     flex-direction: column;
   }
@@ -43,12 +42,10 @@ const RegisterFormContainer = styled.div`
   background: var(--background-secondary);
   border-radius: 7px;
   padding: 2rem;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-
   @media screen and (max-width: 990px) {
     width: 100%;
   }
@@ -57,13 +54,11 @@ const RegisterFormContainer = styled.div`
 const ImageContainer = styled.div`
   width: 40%;
   height: 100%;
-
   .image {
     width: 30%;
     height: auto;
     aspect-ratio: 1.2/1;
   }
-
   @media screen and (max-width: 990px) {
     width: 90%;
     margin-top: 4rem;
@@ -80,7 +75,6 @@ const NewButton = styled.button`
   margin-top: 0.5rem;
   padding: 15px 20px;
   border-radius: 50px;
-
   &:hover {
     color: #000000;
     background: #ecfdff;
@@ -120,8 +114,8 @@ const EventRegister = () => {
     setInputValue('city', 'Rourkela');
     setInputValue('college', 'National Institute of Technology Rourkela');
   };
-  // const setStageToNonNitrForm = () => setStage(STAGES.NON_NITR_STUDENT_FORM);
-  const setStageToClosedRegistration = () => setStage(STAGES.REGISTRATION_CLOSED);
+  const setStageToNonNitrForm = () => setStage(STAGES.NON_NITR_STUDENT_FORM);
+  // const setStageToClosedRegistration = () => setStage(STAGES.REGISTRATION_CLOSED);
   const setStageToTxnSuccessful = () => setStage(STAGES.TXN_SUCCESSFUL);
   const setStageToTxnUnsuccessful = () => setStage(STAGES.TXN_UNSUCCESSFUL);
   const setStageToTypeOfUser = () => {
@@ -134,8 +128,8 @@ const EventRegister = () => {
   };
   const setNonNitrStudent = () => {
     setIsNitrStudent({ yes: false, no: true });
-    setStageToClosedRegistration();
-    // setStageToNonNitrForm();
+    // setStageToClosedRegistration();
+    setStageToNonNitrForm();
   };
 
   const onInputChange = (event, objKey) => {
@@ -176,14 +170,14 @@ const EventRegister = () => {
     if (isNitrStudent.yes || userData?.rollNumber) {
       setStageToNitrForm();
     } else {
-      // setStageToNonNitrForm();
-      setStageToClosedRegistration();
+      setStageToNonNitrForm();
+      // setStageToClosedRegistration();
     }
   };
 
   const onRetryClick = () => {
-    // initiatePayment();
-    setStageToClosedRegistration();
+    initiatePayment();
+    // setStageToClosedRegistration();
   };
 
   const saveUser = async () => {
